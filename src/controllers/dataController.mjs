@@ -1,4 +1,4 @@
-import supabase from '../supabase.mjs';
+import supabase from '../services/supabase.mjs';
 
 export async function getHouses() {
   const { data: houses, error } = await supabase.from('houses').select('*');

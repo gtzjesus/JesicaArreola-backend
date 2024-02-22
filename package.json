@@ -4,8 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node src/server.mjs",
-    "heroku-postbuild": "echo 'Running heroku postbuild script'"
+    "start": "node src/server.mjs"
   },
   "keywords": [],
   "author": "",
