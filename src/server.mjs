@@ -1,5 +1,5 @@
 import express from 'express';
-import supabaseRoutes from './src/routes/supabaseRoute.mjs'; // Import your Supabase routes
+import supabaseRoutes from './routes/supabaseRoute.mjs'; // Import your Supabase routes
 
 const app = express();
 const PORT = process.env.PORT || 3001;
