@@ -4,7 +4,7 @@ import { getHouses } from '../controllers/dataController.mjs'; // Import your Su
 const router = express.Router();
 
 // Define route to fetch houses
-router.get('/houses', async (req, res) => {
+router.get('/api/houses', async (req, res) => {
   try {
     const houses = await getHouses();
     res.json(houses);
