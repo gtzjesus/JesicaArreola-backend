@@ -4,6 +4,23 @@ import supabaseRoutes from './routes/supabaseRoute.mjs'; // Import your Supabase
 const app = express();
 const PORT = process.env.PORT || 3001;
 
+// Update CORS configuration to allow requests from your frontend URL
+app.use(
+  cors({
+    origin: '*',
+    methods: ['GET', 'POST'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+  })
+);
+
+// Handle preflight requests
+// app.options('houses', (req, res) => {
+//   res.set('Access-Control-Allow-Origin', 'https://jesicaarreola-frontend.vercel.app');
+//   res.set('Access-Control-Allow-Methods', 'GET');
+//   res.set('Access-Control-Allow-Headers', 'Content-Type');
+//   res.status(200).end();
+// });
+
 // Use Supabase routes
 app.use('/api', supabaseRoutes);
 
