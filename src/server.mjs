@@ -16,12 +16,15 @@ app.use(
 );
 
 // Handle preflight requests
-// app.options('houses', (req, res) => {
-//   res.set('Access-Control-Allow-Origin', 'https://jesicaarreola-frontend.vercel.app');
-//   res.set('Access-Control-Allow-Methods', 'GET');
-//   res.set('Access-Control-Allow-Headers', 'Content-Type');
-//   res.status(200).end();
-// });
+app.options('houses', (req, res) => {
+  res.set(
+    'Access-Control-Allow-Origin',
+    'https://jesicaarreola-frontend.vercel.app'
+  );
+  res.set('Access-Control-Allow-Methods', 'GET');
+  res.set('Access-Control-Allow-Headers', 'Content-Type');
+  res.status(200).end();
+});
 
 // Use Supabase routes
 app.use('/api', supabaseRoutes);
