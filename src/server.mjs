@@ -1,4 +1,6 @@
 import express from 'express';
+import cors from 'cors';
+
 import supabaseRoutes from './routes/supabaseRoute.mjs'; // Import your Supabase routes
 
 const app = express();
