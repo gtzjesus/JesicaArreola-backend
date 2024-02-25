@@ -1,7 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 
-import supabaseRoutes from './routes/supabaseRoute.mjs'; // Import your Supabase routes
+import supabaseRoute from './routes/supabaseRoute.mjs'; // Import your Supabase routes
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -27,7 +27,7 @@ app.options('/api/houses', (req, res) => {
 });
 
 // Use Supabase routes
-app.use('/api', supabaseRoutes);
+app.use('/api', supabaseRoute);
 
 // Error Handling Middleware
 app.use((err, req, res, next) => {
