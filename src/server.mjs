@@ -15,8 +15,8 @@ app.use(
   })
 );
 
-// Handle preflight requests
-app.options('houses', (req, res) => {
+// Handle preflight requests for /api/houses endpoint
+app.options('/api/houses', (req, res) => {
   res.set(
     'Access-Control-Allow-Origin',
     'https://jesicaarreola-frontend.vercel.app'
@@ -28,6 +28,12 @@ app.options('houses', (req, res) => {
 
 // Use Supabase routes
 app.use('/api', supabaseRoutes);
+
+// Error Handling Middleware
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).send('Something broke!');
+});
 
 app.get('/', (req, res) => {
   res.send('WorldHello!');
