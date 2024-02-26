@@ -34,10 +34,6 @@ app.use((err, req, res, next) => {
   res.status(500).send('Something broke!');
 });
 
-app.get('/', (req, res) => {
-  res.send('WorldHello!');
-});
-
 app.listen(process.env.PORT || 3000, function () {
   console.log(
     'Express server listening on port %d in %s mode',
