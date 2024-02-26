@@ -9,7 +9,6 @@ router.get('/api/houses', async (req, res) => {
   try {
     // Call controller module to fetch houses data
     const houses = await getHouses();
-    console.log(houses);
     res.json(houses);
   } catch (error) {
     console.error('Error fetching houses:', error);
