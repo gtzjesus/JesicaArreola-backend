@@ -10,21 +10,21 @@ const PORT = process.env.PORT || 3001;
 app.use(
   cors({
     origin: '*',
-    methods: ['GET', 'POST'],
+    methods: ['GET'], // Allow only GET requests
     allowedHeaders: ['Content-Type', 'Authorization'],
   })
 );
 
 // Handle preflight requests for /api/houses endpoint
-app.options('/api/houses', (req, res) => {
-  res.set(
-    'Access-Control-Allow-Origin',
-    'https://jesicaarreola-frontend.vercel.app'
-  );
-  res.set('Access-Control-Allow-Methods', 'GET');
-  res.set('Access-Control-Allow-Headers', 'Content-Type');
-  res.status(200).end();
-});
+// app.options('/api/houses', (req, res) => {
+//   res.set(
+//     'Access-Control-Allow-Origin',
+//     'https://jesicaarreola-frontend.vercel.app'
+//   );
+//   res.set('Access-Control-Allow-Methods', 'GET');
+//   res.set('Access-Control-Allow-Headers', 'Content-Type');
+//   res.status(200).end();
+// });
 
 // Use Supabase routes
 app.use('/', supabaseRoute);
