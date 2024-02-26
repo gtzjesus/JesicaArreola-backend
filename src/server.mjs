@@ -27,7 +27,7 @@ app.options('/api/houses', (req, res) => {
 });
 
 // Use Supabase routes
-app.use('/api', supabaseRoute);
+app.use('/', supabaseRoute);
 
 // Error Handling Middleware
 app.use((err, req, res, next) => {
@@ -35,7 +35,6 @@ app.use((err, req, res, next) => {
 });
 
 app.get('/', (req, res) => {
-  console.log(houses);
   res.send('WorldHello!');
 });
 
