@@ -15,6 +15,14 @@ app.use(
   })
 );
 
+// Handle preflight requests
+app.options('/api/sendEmail', (req, res) => {
+  res.set('Access-Control-Allow-Origin', 'https://arreolahomesales.com');
+  res.set('Access-Control-Allow-Methods', 'POST');
+  res.set('Access-Control-Allow-Headers', 'Content-Type');
+  res.status(200).end();
+});
+
 // POST route to send Email
 app.post('/api/sendEmail', async (req, res) => {
   try {
