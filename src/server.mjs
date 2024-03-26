@@ -1,5 +1,6 @@
 import express from 'express';
 import cors from 'cors';
+import nodemailer from 'nodemailer';
 
 import supabaseRoute from './routes/supabaseRoute.mjs'; // Import your Supabase routes
 
@@ -17,7 +18,7 @@ app.use(
 
 // Handle preflight requests
 app.options('/api/sendEmail', (req, res) => {
-  res.set('Access-Control-Allow-Origin', 'https://arreolahomesales.com');
+  res.set('Access-Control-Allow-Origin', '*');
   res.set('Access-Control-Allow-Methods', 'POST');
   res.set('Access-Control-Allow-Headers', 'Content-Type');
   res.status(200).end();
