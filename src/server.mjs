@@ -14,7 +14,7 @@ app.use(bodyParser.json());
 // Update CORS configuration to allow requests from your frontend URL
 app.use(
   cors({
-    origin: 'https://arreolahomesales.com',
+    origin: '*',
     methods: ['GET', 'POST'], // Allowed methods
     allowedHeaders: ['Content-Type', 'Authorization'],
   })
