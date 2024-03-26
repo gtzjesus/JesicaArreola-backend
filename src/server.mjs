@@ -15,6 +15,43 @@ app.use(
   })
 );
 
+// POST route to send Email
+app.post('/api/sendEmail', async (req, res) => {
+  try {
+    const { name, email, phone, howCanWeHelp, howDidYouHear } = req.body;
+
+    const transporter = nodemailer.createTransport({
+      host: 'smtp.office365.com',
+      port: 587,
+      secure: false,
+      auth: {
+        user: 'arreolahomesales@outlook.com',
+        pass: '1427JaJg',
+      },
+    });
+
+    const mailOptions = {
+      from: 'arreolahomesales@outlook.com',
+      to: 'arreolahomesales@outlook.com',
+      subject: 'New House Lead',
+      html: `
+        <p>Name: ${name}</p>
+        <p>Email: ${email}</p>
+        <p>Phone: ${phone}</p>
+        <p>How can we help: ${howCanWeHelp}</p>
+        <p>How did you hear: ${howDidYouHear}</p>
+        `,
+    };
+
+    const info = await transporter.sendMail(mailOptions);
+    console.log('Email sent:', info.response);
+    res.status(200).json({ message: 'Email sent successfully' });
+  } catch (error) {
+    console.error('Error sending email:', error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
+
 // Use Supabase routes
 app.use('/', supabaseRoute);
 
